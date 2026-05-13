@@ -31,3 +31,8 @@ body {
     opacity: 0;
   }
 }
+html,
+body {
+  background: #0b0b0b;
+  overflow-x: hidden;
+}
