@@ -8,6 +8,7 @@ import { useTheme } from "next-themes";
 export default function Navbar() {
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -16,41 +17,43 @@ export default function Navbar() {
     return (
         <nav className="fixed top-0 z-50 w-full border-b border-neutral-800 bg-black/70 backdrop-blur-xl">
             <div className="flex w-full items-center justify-between px-3 py-3 sm:px-6 sm:py-5 md:px-10">
-
-                {/* Terminal Logo */}
                 <div className="flex min-w-0 items-center font-mono text-lg font-bold tracking-tight text-neutral-100 sm:text-3xl">
-                    <span className="mr-2 text-neutral-500">
-                        &gt;
-                    </span>
+                    <div className="relative mr-3">
+                        <button
+                            onClick={() => setOpen(!open)}
+                            className="text-neutral-500 transition hover:text-white"
+                            aria-label="Open navigation menu"
+                        >
+                            &gt;
+                        </button>
 
-                    <span className="truncate">
-                        emily.dev
-                    </span>
+                        {open && (
+                            <div className="absolute left-0 top-10 z-50 w-44 rounded-2xl border border-neutral-800 bg-black/95 p-3 text-sm text-neutral-300 shadow-xl backdrop-blur-xl">
+                                <a
+                                    href="#experience"
+                                    onClick={() => setOpen(false)}
+                                    className="block rounded-lg px-3 py-2 transition hover:bg-neutral-900 hover:text-white"
+                                >
+                                    experience
+                                </a>
 
-                    <span className="ml-2 text-neutral-500">
-                        $
-                    </span>
+                                <a
+                                    href="#work"
+                                    onClick={() => setOpen(false)}
+                                    className="block rounded-lg px-3 py-2 transition hover:bg-neutral-900 hover:text-white"
+                                >
+                                    projects
+                                </a>
+                            </div>
+                        )}
+                    </div>
 
+                    <span>emily.dev</span>
+                    <span className="ml-2 text-neutral-500">$</span>
                     <span className="ml-1 inline-block h-5 w-[2px] animate-[blink_0.6s_steps(1,end)_infinite] rounded-full bg-orange-400 sm:h-8 sm:w-[3px]" />
                 </div>
 
-                {/* Right Side */}
-                <div className="flex shrink-0 items-center gap-2 text-neutral-300 sm:gap-5">
-
-                    <a
-                        href="#experience"
-                        className="font-mono text-[10px] transition hover:text-white sm:text-sm"
-                    >
-                        experience
-                    </a>
-
-                    <a
-                        href="#work"
-                        className="font-mono text-[10px] transition hover:text-white sm:text-sm"
-                    >
-                        projects
-                    </a>
-
+                <div className="flex shrink-0 items-center gap-3 text-neutral-300 sm:gap-5">
                     <a
                         href="https://github.com/ilike2code87"
                         target="_blank"
@@ -70,9 +73,7 @@ export default function Navbar() {
                     </a>
 
                     <button
-                        onClick={() =>
-                            setTheme(theme === "dark" ? "light" : "dark")
-                        }
+                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                         className="transition hover:scale-110"
                         aria-label="Toggle theme"
                     >

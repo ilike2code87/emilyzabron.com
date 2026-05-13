@@ -61,14 +61,7 @@ export default function Projects() {
                         key={project.title}
                         className="group rounded-3xl border border-neutral-300 bg-white/50 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-900/70 md:p-8"
                     >
-                        <div className="mb-8 flex items-center justify-between">
-              <span className="text-sm text-neutral-400">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-                            <span className="rounded-full border border-neutral-300 px-3 py-1 text-xs uppercase tracking-[0.2em] text-neutral-500 dark:border-neutral-700 dark:text-neutral-400">
-                {project.type}
-              </span>
-                        </div>
+
 
                         <h3 className="mb-5 text-3xl font-semibold tracking-tight md:text-5xl">
                             {project.title}
