@@ -16,32 +16,36 @@ export default function Navbar() {
 
     return (
         <nav className="fixed top-0 z-50 w-full border-b border-neutral-800 bg-black/70 backdrop-blur-xl">
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5 md:px-10">
 
                 {/* Terminal Logo */}
-                <div className="flex items-center font-mono text-3xl font-bold tracking-tight text-neutral-100">
-                    <span className="mr-3 text-neutral-500">&gt;</span>
+                <div className="flex items-center font-mono text-xl font-bold tracking-tight text-neutral-100 sm:text-3xl">
+                    <span className="mr-2 text-neutral-500 sm:mr-3">
+                        &gt;
+                    </span>
 
                     <span>emily.dev</span>
 
-                    <span className="ml-3 text-neutral-500">$</span>
+                    <span className="ml-2 text-neutral-500 sm:ml-3">
+                        $
+                    </span>
 
-                    <span className="ml-2 inline-block h-8 w-[3px] animate-[blink_0.6s_steps(1,end)_infinite] rounded-full bg-orange-400" />
+                    <span className="ml-2 inline-block h-6 w-[3px] rounded-full bg-orange-400 sm:h-8 animate-[blink_0.6s_steps(1,end)_infinite]" />
                 </div>
 
                 {/* Navigation + Icons */}
-                <div className="flex items-center gap-6 text-neutral-300">
+                <div className="flex items-center gap-3 text-neutral-300 sm:gap-6">
 
                     <a
                         href="#experience"
-                        className="font-mono text-sm transition hover:text-white"
+                        className="hidden font-mono text-sm transition hover:text-white sm:block"
                     >
                         experience
                     </a>
 
                     <a
                         href="#work"
-                        className="font-mono text-sm transition hover:text-white"
+                        className="hidden font-mono text-sm transition hover:text-white sm:block"
                     >
                         projects
                     </a>
@@ -52,7 +56,7 @@ export default function Navbar() {
                         rel="noopener noreferrer"
                         className="transition hover:scale-110 hover:text-white"
                     >
-                        <FaGithub size={34} />
+                        <FaGithub size={28} className="sm:h-[34px] sm:w-[34px]" />
                     </a>
 
                     <a
@@ -61,7 +65,7 @@ export default function Navbar() {
                         rel="noopener noreferrer"
                         className="transition hover:scale-110 hover:text-white"
                     >
-                        <FaLinkedin size={34} />
+                        <FaLinkedin size={28} className="sm:h-[34px] sm:w-[34px]" />
                     </a>
 
                     <button
@@ -72,11 +76,17 @@ export default function Navbar() {
                         aria-label="Toggle theme"
                     >
                         {!mounted ? (
-                            <span className="block h-[34px] w-[34px]" />
+                            <span className="block h-[28px] w-[28px] sm:h-[34px] sm:w-[34px]" />
                         ) : theme === "dark" ? (
-                            <Sun size={34} className="text-yellow-300" />
+                            <Sun
+                                size={28}
+                                className="text-yellow-300 sm:h-[34px] sm:w-[34px]"
+                            />
                         ) : (
-                            <Moon size={34} className="text-blue-400" />
+                            <Moon
+                                size={28}
+                                className="text-blue-400 sm:h-[34px] sm:w-[34px]"
+                            />
                         )}
                     </button>
                 </div>
